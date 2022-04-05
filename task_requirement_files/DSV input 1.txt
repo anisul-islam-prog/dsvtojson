@@ -1,0 +1,4 @@
+firstName,middleName,lastName,gender,dateOfBirth,salary
+Wolfgang,Amadeus,Mozart,Male,1756-01-27,1000
+Albert,,Einstein,Male,1955/04/18,2000
+"Marie, Salomea",Skłodowska |,Curie,Female,04-07-1934,3000
