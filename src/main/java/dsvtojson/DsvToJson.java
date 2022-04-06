@@ -37,7 +37,7 @@ public class DsvToJson {
 //		System.out.println(outDir);
 		String outDir2 = outDir.replace("\"", "");
 		ToJson tj = new ToJson();
-		String finalOutDir = tj.ConvertToJson(headers, filePath, delimiter, outDir2);
+		String finalOutDir = tj.ConvertToJsonl(headers, filePath, delimiter, outDir2);
 		System.out.println(finalOutDir);
 //		for (String s : headers) {
 //			System.out.println(s);
