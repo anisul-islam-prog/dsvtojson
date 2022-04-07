@@ -14,10 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 
-
 public class ToJson {
-	
-	
+
 	public String lineToJson(String[] headers, String delimiter, String str) {
 		String[] tokens = str.split(delimiter);
 		Stack<String> processed = new Stack<String>();
@@ -53,23 +51,20 @@ public class ToJson {
 					sdfformates.add("yyyy/MM/dd");
 					sdfformates.add("yyyy-MM-dd");
 					Date date = null;
-					SimpleDateFormat sdf=null;
-			        try {
-			            if(value.contains("/"))
-			            {
-			               sdf  = new SimpleDateFormat("yyyy/MM/dd");
+					SimpleDateFormat sdf = null;
+					try {
+						if (value.contains("/")) {
+							sdf = new SimpleDateFormat("yyyy/MM/dd");
 
-			            }
-			            else
-			            {
-			               sdf  = new SimpleDateFormat("dd-MM-yyyy");
+						} else {
+							sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-			            }
-			            date = sdf.parse(value);
-			            
-			        } catch (ParseException exp) {
-			            exp.printStackTrace();
-			        }
+						}
+						date = sdf.parse(value);
+
+					} catch (ParseException exp) {
+						exp.printStackTrace();
+					}
 					String finalDateString = myFormat.format(date);
 					tempJStr = String.format("\"%s\": \"%s\",", headers[i], finalDateString);
 				} else {
@@ -108,9 +103,9 @@ public class ToJson {
 					headers = str.split(delimiter);
 					isHeader++;
 				} else {
-//				System.out.println(str);
-					String json= this.lineToJson(headers, delimiter, str);
-					try (FileWriter writer = new FileWriter(outFile, true);
+//					System.out.println(str);
+					String json = this.lineToJson(headers, delimiter, str);
+					try (FileWriter writer = new FileWriter(outFile, StandardCharsets.UTF_8, true);
 							BufferedWriter bw = new BufferedWriter(writer)) {
 
 						bw.write(json);
